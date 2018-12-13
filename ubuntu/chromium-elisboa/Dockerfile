@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 #COPY sysctl.conf /etc/sysctl.conf
 #COPY alsa.conf /usr/share/alsa/alsa.conf
@@ -13,23 +13,22 @@ RUN echo enable-shm=no >> /etc/pulse/client.conf
 
 # Replace 1000 with your user / group id
 RUN export uid=1000 gid=1000 && \
-    mkdir -p /etc/sudoers.d && \
-    mkdir -p /home/developer && \
-    echo "developer:x:${uid}:${gid}:Developer,,,:/home/developer:/bin/bash" >> /etc/passwd && \
-    echo "developer:x:${uid}:" >> /etc/group && \
-    echo "developer ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/developer && \
-    chmod 0440 /etc/sudoers.d/developer && \
-    chown ${uid}:${gid} -R /home/developer && \
-    adduser developer audio && \
-    adduser developer video && \
-    adduser developer pulse && \
-    adduser developer pulse-access
+    mkdir -p /home/elisboa && \
+    echo "elisboa:x:${uid}:${gid}:Developer,,,:/home/elisboa:/bin/bash" >> /etc/passwd && \
+    echo "elisboa:x:${uid}:" >> /etc/group && \
+    chown ${uid}:${gid} -R /home/elisboa && \
+    adduser elisboa audio && \
+    adduser elisboa video && \
+    adduser elisboa pulse && \
+    adduser elisboa pulse-access
 
-USER developer
+USER elisboa
 ENV PULSE_SERVER /run/pulse/native
-ENV HOME /home/developer
+ENV HOME /home/elisboa
 
 #CMD /usr/bin/chromium-browser --no-sandbox
 #CMD sudo /usr/bin/chromium-browser
+
 CMD ["/usr/bin/chromium-browser"]
+
 #CMD /bin/bash
