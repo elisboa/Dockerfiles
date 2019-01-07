@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:18.10
 
 #COPY sysctl.conf /etc/sysctl.conf
 #COPY alsa.conf /usr/share/alsa/alsa.conf
@@ -7,6 +7,7 @@ RUN apt-get update
 RUN apt-get install -y libgl1-mesa-glx libgl1-mesa-dri
 RUN apt-get install -y xdg-utils libxss1 alsa-base pulseaudio fonts-noto gdebi-core wget
 RUN apt-get install -y chromium-browser
+#RUN apt-get install -y 
 
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/google-chrome-stable.deb
 RUN dpkg -i /tmp/google-chrome-stable.deb || apt-get install -y --fix-broken
