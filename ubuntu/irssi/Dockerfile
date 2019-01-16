@@ -17,6 +17,7 @@ ENV HOME /home/irssi
 #CMD sudo /usr/bin/chromium-browser
 #CMD /usr/bin/chromium-browser
 #CMD /bin/bash
+RUN date
 CMD /usr/bin/irssi -c irc.freenode.net -w 9hLLQWQe -n elisboa
 #RUN passwd irssi
 #CMD su - irssi
