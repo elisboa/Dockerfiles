@@ -3,6 +3,8 @@ FROM ubuntu
 #RUN apt-get update && apt-get install -y chromium-browser
 RUN apt-get update && apt install -y chromium-browser
 
+COPY Sao_Paulo /etc/localtime
+
 # Replace 1000 with your user / group id
 RUN export uid=1000 gid=1000 && \
 	mkdir -p /etc/sudoers.d && \
@@ -18,6 +20,7 @@ RUN export uid=1000 gid=1000 && \
 USER rivendel
 ENV HOME /home/rivendel
 WORKDIR /home/rivendel
+RUN date
 #CMD /usr/bin/chromium-browser --no-sandbox
 #CMD sudo /usr/bin/chromium-browser
 CMD /usr/bin/chromium-browser
