@@ -23,3 +23,4 @@ ENV HOME /home/developer
 #CMD /bin/bash
 #CMD /usr/bin/code
 CMD /usr/bin/code -w --verbose
+

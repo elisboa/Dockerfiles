@@ -11,7 +11,7 @@ RUN export uid=1000 gid=1000 && \
     chmod 0440 /etc/sudoers.d/developer && \
     chown ${uid}:${gid} -R /home/developer && \
     adduser developer audio
-
+# Esta é uma linha de teste
 USER developer
 ENV HOME /home/developer
 #CMD /usr/bin/chromium-browser --no-sandbox
